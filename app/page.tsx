@@ -1,113 +1,112 @@
-import Image from 'next/image'
+'use client';
+import { About, Contact, Intro, Projects, Work } from '@/components'
+
+import { createRef, useRef, useState } from 'react';
+import { SiLeetcode, SiLinkedin, SiGithub } from "react-icons/si";
+import { GoUnmute, GoMute } from "react-icons/go";
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function Home() {
+  
+
+
+  const [isSelected, setIsSelected] = useState(false);
+  const [isSelected1, setIsSelected1] = useState(false);
+  const [isSelected2, setIsSelected2] = useState(false);
+   const [isPlaying, setIsPlaying] = useState(false);
+  let audioRef = useRef<HTMLAudioElement>(null);
+  
+ const togglePlay = () => {
+   const audioElement = audioRef.current;
+
+   if (audioElement) {
+     if (isPlaying) {
+       audioElement.pause();
+     } else {
+       audioElement.play();
+     }
+     setIsPlaying(!isPlaying);
+   }
+ };
+  const router = useRouter(); 
+
+
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+   <div className="relative">
+      <div className=" h-screen w-[auto] bg-[#0D0D0D] ">
+        <audio
+          src="portfolio-audio.mp3"
+          ref={audioRef}
+          
+          loop={true}
+          muted={false}
+          controls={false}
+          style={{ display: "none" }}
+          preload="auto"
         />
+
+        {/* <audio
+          id="audio"
+          muted
+          onPlay={(e) => console.log("onPlay")}
+          controls={true}
+          loop
+          style = {{display: "none"}}
+          autoPlay={true}
+        >
+          <source src="portfolio-audio.mp3" type="audio/mp3" />
+        </audio> */}
+        <Intro />
+        <About />
+        <Work
+          isSelected={isSelected}
+          setIsSelected={setIsSelected}
+          isSelected1={isSelected1}
+          setIsSelected1={setIsSelected1}
+          isSelected2={isSelected2}
+          setIsSelected2={setIsSelected2}
+        />
+        <Projects
+          setIsSelected={setIsSelected}
+          setIsSelected1={setIsSelected1}
+          setIsSelected2={setIsSelected2}
+        />
+        <Contact />
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
+      <div className="fixed bottom-10 right-0 md:right-2 auto w-[30px]  flex flex-col space-y-20 md:bg-gray-700 items-center py-5 rounded-lg">
         <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          href="https://www.linkedin.com/in/aditya-sriramteja-chilukuri/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
+          <SiLinkedin size="20px" color="orange" />
         </a>
-
         <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
+          href="https://github.com/AdityaSriramTeja"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
+          <SiGithub size="20px" color="orange" />
         </a>
-
         <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          href="https://leetcode.com/adityasriramteja/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
+          <SiLeetcode size="20px" color="orange " />
         </a>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        {isPlaying ? (
+          <GoUnmute size="20px" color="orange " onClick={togglePlay} />
+        ) : (
+          <GoMute size="20px" color="orange " onClick={togglePlay} />
+        )}
       </div>
-    </main>
-  )
+     
+      </div>
+ 
+    
+  );
 }
