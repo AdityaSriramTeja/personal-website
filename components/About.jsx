@@ -119,12 +119,13 @@ const About = () => {
         className={` ${font.className} flex-col space-y-1 h-[60vh] flex  mt-[1rem] mb-[30vh] flex-1 `}
       >
         <p className="text-left tracking-wide md:tracking-normal">
-          A passionate tech enthusiast pursuing my second year of Bachelor's in
-          Computer Science (BCS) at Carleton University. With a keen interest in
-          programming, I gained experience working with a diverse range of
-          technologies. Whether it's tackling complex algorithms, developing
-          innovative solutions, or collaborating on exciting projects, I thrive
-          in dynamic environments that challenge me to push my boundaries.
+          A passionate tech enthusiast pursuing my second year of
+          Bachelor&apos;s in Computer Science (BCS) at Carleton University. With
+          a keen interest in programming, I gained experience working with a
+          diverse range of technologies. Whether it&apos;s tackling complex
+          algorithms, developing innovative solutions, or collaborating on
+          exciting projects, I thrive in dynamic environments that challenge me
+          to push my boundaries.
         </p>
       </section>
       <div className="flex-col">

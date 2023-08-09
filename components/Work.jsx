@@ -1,8 +1,7 @@
 
 "use client";
-import React, { useEffect, useState, useRef} from "react";
-import { motion, AnimatePresence, useInView, useAnimation } from "framer-motion";
-import { useRouter } from "next/navigation";
+import React, { useEffect, useRef} from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Marquee from "react-fast-marquee";
 import { Neuton } from "next/font/google";
 
@@ -15,8 +14,7 @@ const font1 = Neuton({
   subsets: ["latin"],
 });
 
-const transition = { duration: 0.6, ease: [0.45, 0.15, 0.25, 0.98] };
-const color = '#9253a1';
+
 const Work = (props) => {
  
  
@@ -174,7 +172,7 @@ const Work = (props) => {
               >
                 As an experienced and skilled application developer, I
                 successfully developed a mobile application tailored precisely
-                to the client's requirements. Remarkably, the entire app
+                to the client&apos;s requirements. Remarkably, the entire app
                 development process was completed within a short period of time,
                 and I was solely responsible for its execution, highlighting my
                 ability to deliver high-quality results efficiently. My
@@ -200,9 +198,9 @@ const Work = (props) => {
                 demonstrated my proficiency in debugging by identifying and
                 resolving several bugs that were left behind by the previous
                 developer. My meticulous approach to debugging played a crucial
-                role in optimizing the application's performance and
+                role in optimizing the application&apos;s performance and
                 reliability. Throughout the development process, I fostered
-                effective collaboration with the company's backend team,
+                effective collaboration with the company&apos;s backend team,
                 leveraging their APIs to establish seamless communication
                 between the application and the server. Doing so facilitated
                 robust data management and synchronization, further enhancing
@@ -253,8 +251,8 @@ const Work = (props) => {
               >
                 I was an active member of a dynamic 10 member team consisting of
                 frontend and design students. Together, we built an impactful
-                web application for the Refugee Center's refugee and immigrant
-                portal. Through a seamless integration of{" "}
+                web application for the Refugee Center&apos;s refugee and
+                immigrant portal. Through a seamless integration of{" "}
                 <strong>
                   Continuous Integration/Continuous Deployment (CI/CD) processes
                   and Figma,
@@ -265,7 +263,8 @@ const Work = (props) => {
                 Canada. Using{" "}
                 <strong>
                   {" "}
-                  Next.JS, React.JS, Material UI, and the organization's APIs,
+                  Next.JS, React.JS, Material UI, and the organization&apos;s
+                  APIs,
                 </strong>{" "}
                 we ensured a secure, high-performing platform. This experience
                 combines my technical skills with a meaningful social impact,
