@@ -156,7 +156,7 @@ const Contact = () => {
         />
 
         <button
-          className="bg-black h-[15%] w-[40%] md:w-[30%] mt-5 rounded-lg"
+          className="bg-black text-gray-100 h-[15%] w-[40%] md:w-[30%] mt-5 rounded-lg"
           type="submit"
         >
           Send message
