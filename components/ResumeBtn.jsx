@@ -1,10 +1,10 @@
 import React from 'react';
 // import resume from ".././images/aditya_Sriramteja_Chilukuri_Resume.pdf";
 const ResumeButton = () => {
- 
+
   return (
     <a
-      href={"Aditya_Sriramteja_Chilukuri_Resume.pdf"}
+      href={"Teja_Fall2024_resume.pdf"}
       target="_blank"
       rel="noopener noreferrer"
       donwload="teja_chilukuri_resume"

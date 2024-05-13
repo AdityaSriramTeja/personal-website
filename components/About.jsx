@@ -2,23 +2,23 @@
 import React, { useEffect, useRef} from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import FlutterLogo from '../public/flutter.svg'
-import cssLogo from '../public/css-3.svg'; 
-import firebaseLogo from "../public/firebase-svgrepo-com.svg"; 
-import htmlLogo from '../public/html-1.svg'; 
-import javaLogo from '../public/jee-3.svg'; 
-import nextLogo from '../public/next-js-svgrepo-com.svg'; 
-import nodeLogo from '../public/nodejs-icon.svg'; 
-import pythonLogo from '../public/python-5.svg'; 
-import reactLogo from '../public/react-2.svg'; 
-import sqliteLogo from '../public/sqlite-svgrepo-com.svg'; 
-import tailwindLogo from '../public/tailwind-css-2.svg'; 
-import githubLogo from '../public/github-svgrepo-com (1).svg'; 
-import javascriptLogo from '../public/javascript-svgrepo-com.svg'; 
-import vscodeLogo from '../public/vscode-svgrepo-com.svg'; 
-import postmanLogo from '../public/postman-icon-svgrepo-com.svg'; 
+import cssLogo from "../public/css-3.svg";
+import firebaseLogo from "../public/firebase-svgrepo-com.svg";
+import htmlLogo from "../public/html-1.svg";
+import javaLogo from "../public/jee-3.svg";
+import nextLogo from "../public/next-js-svgrepo-com.svg";
+import nodeLogo from "../public/nodejs-icon.svg";
+import pythonLogo from "../public/python-5.svg";
+import reactLogo from "../public/react-2.svg";
+import sqliteLogo from "../public/sqlite-svgrepo-com.svg";
+import tailwindLogo from "../public/tailwind-css-2.svg";
+import githubLogo from "../public/github-svgrepo-com (1).svg";
+import javascriptLogo from "../public/javascript-svgrepo-com.svg";
+import vscodeLogo from "../public/vscode-svgrepo-com.svg";
+import postmanLogo from "../public/postman-icon-svgrepo-com.svg";
 import { Neuton } from "next/font/google";
 
-import Image from 'next/image';
+import Image from "next/image";
 // const transition = {delay: 0.2, duration: 0.5, ease: [0.45, 0.15, 0.25, 0.98] };
 const frontendTechnologies = [
   [pythonLogo, "Python"],
@@ -31,19 +31,22 @@ const frontendTechnologies = [
   [nextLogo, "Next.JS"],
 
   [cssLogo, "CSS"],
-  [tailwindLogo,"Tailwind"]
+  [tailwindLogo, "Tailwind"],
 ];
 
 const backendTechnologies = [
   [nodeLogo, "Node.JS"],
   [nextLogo, "Next.JS"],
-  [firebaseLogo,"Firebase"],
-  [firebaseLogo,"Firestore"],
-  [sqliteLogo,"SqLite"],
+  [firebaseLogo, "Firebase"],
+  [firebaseLogo, "Firestore"],
+  [sqliteLogo, "SqLite"],
 ];
 
-const toolsAndSkills = [[postmanLogo, "Postman"], [githubLogo, "GitHub"], [vscodeLogo, "Vscode"]];
-
+const toolsAndSkills = [
+  [postmanLogo, "Postman"],
+  [githubLogo, "GitHub"],
+  [vscodeLogo, "Vscode"],
+];
 
 const font = Neuton({
   weight: "300",
@@ -56,15 +59,14 @@ const font1 = Neuton({
 
 const About = () => {
   const scrollRef = useRef(null);
-  const isInView = useInView(scrollRef, { amount: 0.3});
-  // const animation = useAnimation(); 
+  const isInView = useInView(scrollRef, { amount: 0.3 });
+  // const animation = useAnimation();
   const animationVariants = {
     hidden: { opacity: 0, y: 100 },
     visible: { opacity: 1, y: 0 },
   };
 
   useEffect(() => {
-  
     let paragraphs = [...document.querySelectorAll("p")];
     let spans = [];
     paragraphs.forEach((paragraph) => {
@@ -74,7 +76,7 @@ const About = () => {
         for (let i = 0; i < pArray.length; i++) {
           htmlString += `<span>${pArray[i]}</span>`;
         }
-      } 
+      }
       paragraph.innerHTML = htmlString;
       spans = [...document.querySelectorAll("span")];
     });
@@ -83,14 +85,16 @@ const About = () => {
       if (spans.length > 0) {
         for (let i = 0; i < spans.length; i++) {
           if (
-            spans[i] != null && spans[i].parentElement != null && spans[i].parentElement.getBoundingClientRect().top <
-            window.innerHeight / 1.7
+            spans[i] != null &&
+            spans[i].parentElement != null &&
+            spans[i].parentElement.getBoundingClientRect().top <
+              window.innerHeight / 1.7
           ) {
             let { left, top } = spans[i].getBoundingClientRect();
             top = top - window.innerHeight * 0.4;
             let opacityVal =
               1 - (top * 0.01 + left * 0.001) < 0.1
-                ? 0.1 
+                ? 0.1
                 : 1 - (top * 0.01 + left * 0.001).toFixed(4);
             opacityVal = opacityVal > 1 ? 1 : 0.3;
             spans[i].style.opacity = opacityVal;
@@ -102,12 +106,12 @@ const About = () => {
       revealSpans();
     });
     revealSpans();
-  }, [])
+  }, []);
 
   // useEffect(() => {
   //   console.log("The element is in view: " + isInView);
   //   if (isInView == true) {
-    
+
   //     animation.start({ opacity:1,  scale: 1, transition: {transition} });
   //   } else {
   //     animation.start({  scale: 0, opacity: 0 });
@@ -164,7 +168,7 @@ const About = () => {
         </div>
       </div>
 
-      <motion.div
+      {/* <motion.div
         ref={scrollRef}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -234,10 +238,9 @@ const About = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
-   
-}
+};
 
 export default About;

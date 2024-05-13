@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 export default function Home() {
-  
+
 
 
   const [isSelected, setIsSelected] = useState(false);
@@ -16,7 +16,7 @@ export default function Home() {
   const [isSelected2, setIsSelected2] = useState(false);
    const [isPlaying, setIsPlaying] = useState(false);
   let audioRef = useRef<HTMLAudioElement>(null);
-  
+
  const togglePlay = () => {
    const audioElement = audioRef.current;
 
@@ -29,7 +29,7 @@ export default function Home() {
      setIsPlaying(!isPlaying);
    }
  };
-  const router = useRouter(); 
+  const router = useRouter();
 
 
 
@@ -39,7 +39,7 @@ export default function Home() {
         <audio
           src="portfolio-audio.mp3"
           ref={audioRef}
-          
+
           loop={true}
           muted={false}
           controls={false}
@@ -104,9 +104,9 @@ export default function Home() {
           <GoMute size="20px" color="orange " onClick={togglePlay} />
         )}
       </div>
-     
+
       </div>
- 
-    
+
+
   );
 }

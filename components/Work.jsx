@@ -16,25 +16,27 @@ const font1 = Neuton({
 
 
 const Work = (props) => {
- 
- 
-
-  
   // console.log("The mouse position is " + mousePosition.x + " " + mousePosition.y);
   // useEffect(() => {
-    
+
   //   const handleMouseMove = (event) => {
-      
+
   //     setMousePosition({ x: event.clientX, y: event.clientY });
-      
-       
+
   //   };
   //   window.addEventListener("mousemove", handleMouseMove);
   //   return () => {
   //     window.removeEventListener("mousemove", handleMouseMove);
   //   };
   // }, []);
-  const { isSelected, setIsSelected, isSelected1, setIsSelected1, isSelected2, setIsSelected2 } = props; 
+  const {
+    isSelected,
+    setIsSelected,
+    isSelected1,
+    setIsSelected1,
+    isSelected2,
+    setIsSelected2,
+  } = props;
   const scrollRef = useRef(null);
   const isInView = useInView(scrollRef, { amount: 0.6 });
   useEffect(() => {
@@ -56,12 +58,12 @@ const Work = (props) => {
 
   //     x: mousePosition.x - 75,
   //     y: mousePosition.y - 75,
-   
+
   //     mixBlendMode: "lighten",
   //   },
   // };
-  const enter = () => setMouseVarient("enter"); 
-  const leave = ()=> setMouseVarient("default")
+  const enter = () => setMouseVarient("enter");
+  const leave = () => setMouseVarient("default");
   return (
     <section
       //     transition={transition}
@@ -89,6 +91,55 @@ const Work = (props) => {
          {" "}
        </motion.div> */}
       <div
+        // onDoubleClick={() => {
+        //   setIsSelected(!isSelected);
+        //   setIsSelected1(false);
+        //   setIsSelected2(false);
+        //   // console.log("Div has been clicked");
+        // }}
+        className="relative"
+      >
+        <div className="flex flex-col md:flex-row  pl-4 pb-4 md:space-x-44 border-y-2 h-[24vh] md:h-[23vh] md:items-center">
+          <h3 className="select-none flex-0 justify-center text-[1.2rem]  md:text-[1.5rem] md:pt-5">
+            {" "}
+            May 2024-Present{" "}
+          </h3>
+          <div className="flex flex-col items-start flex-1  mt-2 md:mt-0 bg-grey-400 pl-4 justify-evenly">
+            <h3 className="select-none "> Developer Intern</h3>
+            <h4 className="text-[1rem] select-none md:text-[1.5rem]">
+              {" "}
+              Royal Bank of Canada (RBC)
+            </h4>
+          </div>
+        </div>
+        {/* <AnimatePresence>
+          {isSelected && (
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              exit={{ scaleY: 0 }} // The exit animation to be applied
+              transition={{ duration: 0.2 }}
+              className="  px-9 py-2 object-fit shrink-0 absolute top-1 left-0 bg-gradient-to-r from-sky-500 via-blue-300 to-cyan-400 overflow-y-auto w-screen  h-[23.2vh] md:h-[22.2vh] "
+            >
+              <h6
+                className={`${font1.className} text-[1.2rem] md:text-[1.5rem] text-black`}
+              >
+                My responsibilities as a president include: <br /> •Resolving
+                any club issues.
+                <br /> •Defining vision and strategic direction, managing
+                relationships with other Blueprint chapters, and supporting new
+                projects and events for students. <br /> •Handling
+                administrative tasks, such as managing email lists, coordinating
+                with Carleton student association, and ensuring project
+                completion, while supporting hiring, fundraising, social media
+                outreach, and team culture through socials and one-on-one
+                check-ins.
+              </h6>
+            </motion.div>
+          )}
+        </AnimatePresence> */}
+      </div>
+      <div
         onDoubleClick={() => {
           setIsSelected(!isSelected);
           setIsSelected1(false);
@@ -100,7 +151,7 @@ const Work = (props) => {
         <div className="flex flex-col md:flex-row  pl-4 pb-4 md:space-x-44 border-y-2 h-[24vh] md:h-[23vh] md:items-center">
           <h3 className="select-none flex-0 justify-center text-[1.2rem]  md:text-[1.5rem] md:pt-5">
             {" "}
-            2023-now{" "}
+            2023-Present{" "}
           </h3>
           <div className="flex flex-col items-start flex-1  mt-2 md:mt-0 bg-grey-400 pl-4 justify-evenly">
             <h3 className="select-none "> President</h3>
@@ -128,7 +179,7 @@ const Work = (props) => {
                 relationships with other Blueprint chapters, and supporting new
                 projects and events for students. <br /> •Handling
                 administrative tasks, such as managing email lists, coordinating
-                with Carleton student assosiation, and ensuring project
+                with Carleton student association, and ensuring project
                 completion, while supporting hiring, fundraising, social media
                 outreach, and team culture through socials and one-on-one
                 check-ins.
@@ -277,7 +328,6 @@ const Work = (props) => {
       </div>
     </section>
   );
-
 }
 
 export default Work
